@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow specific paths that shouldn't be indexed
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://westairtrip.vercel.app/sitemap.xml

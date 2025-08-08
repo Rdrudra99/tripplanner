@@ -1,0 +1,21 @@
+{
+  "name": "West Airlines Trip Planner",
+  "short_name": "West Trip",
+  "description": "Plan your perfect getaway with West Airlines' smart travel planning portal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0046FF",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
