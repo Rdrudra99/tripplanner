@@ -20,7 +20,7 @@ export default function HeroSection() {
                          >
                         <Button
                             asChild
-                            variant="default">
+                            variant="default" className='cursor-pointer'>
                                 <span className="text-nowrap">Plan Your Trip</span>
                         </Button>
                         </SignUpButton>

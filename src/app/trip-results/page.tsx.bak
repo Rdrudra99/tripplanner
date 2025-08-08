@@ -106,7 +106,7 @@ const DestinationCard = ({
         <Button>Book Now</Button>
       </CardFooter>
     </Card>
-  );
+  )
 };
 
 export default function TripResultsPage() {
@@ -168,7 +168,6 @@ export default function TripResultsPage() {
     fetchDestinations()
   }, [])
 
-  // Helper function to format date/time
   const formatDateTime = (dateTime: string) => {
     try {
       return format(parseISO(dateTime), 'MMM d, yyyy h:mm a')
@@ -258,5 +257,105 @@ export default function TripResultsPage() {
         </div>
       </div>
     </div>
-  );
+  )
+}
+
+// Helper function to format date/time
+function formatDateTime(dateTime: string) {
+  try {
+    return format(parseISO(dateTime), 'MMM d, yyyy h:mm a')
+  } catch (e) {
+    return dateTime
+  }
+}
+  // Fallback image if none provided
+  const defaultImage = "https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=2531&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  
+  return (
+    <Card className="overflow-hidden flex flex-col h-full">
+      <div className="relative h-48 w-full overflow-hidden">
+        <img 
+          src={destination.image || defaultImage} 
+          alt={`${destination.name} landscape`}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60">
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <h3 className="text-xl font-bold text-white">{destination.name}</h3>
+            <p className="text-sm text-white/80">
+              ₹{destination.perPersonCost.toLocaleString()} per person
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      {destination.description && (
+        <div className="px-4 py-3 bg-slate-50 border-b">
+          <p className="text-sm text-gray-700 italic">{destination.description}</p>
+        </div>
+      )}
+      
+      <CardContent className="pt-6 space-y-4 flex-grow">
+        <div className="space-y-2">
+          <h3 className="font-medium flex items-center gap-2">
+            <Plane className="h-4 w-4" /> Flight Details
+          </h3>
+          <p className="text-sm text-gray-700">{destination.flight.airline}</p>
+          <div className="flex justify-between text-sm">
+            <div>
+              <p className="font-medium">Departure</p>
+              <p>{formatDateTime(destination.flight.departure)}</p>
+            </div>
+            <div className="text-right">
+              <p className="font-medium">Arrival</p>
+              <p>{formatDateTime(destination.flight.arrival)}</p>
+            </div>
+          </div>
+          <p className="text-sm text-right">₹{destination.flight.pricePerPerson.toLocaleString()} per person</p>
+        </div>
+
+        <Separator />
+
+        <div className="space-y-2">
+          <h3 className="font-medium flex items-center gap-2">
+            <Hotel className="h-4 w-4" /> Accommodation
+          </h3>
+          <p className="text-sm text-gray-700">{destination.hotel.name}</p>
+          <div className="flex justify-between text-sm">
+            <div>
+              <p className="font-medium">Check-in</p>
+              <p>{destination.hotel.checkIn}</p>
+            </div>
+            <div className="text-right">
+              <p className="font-medium">Check-out</p>
+              <p>{destination.hotel.checkOut}</p>
+            </div>
+          </div>
+          <p className="text-sm text-right">₹{destination.hotel.pricePerNight.toLocaleString()} per night</p>
+        </div>
+
+        <Separator />
+
+        <div className="space-y-2">
+          <h3 className="font-medium flex items-center gap-2">
+            <Briefcase className="h-4 w-4" /> Activities
+          </h3>
+          {destination.activities.map((activity, i) => (
+            <div key={i} className="flex justify-between text-sm">
+              <p>{activity.name}</p>
+              <p>₹{activity.pricePerPerson.toLocaleString()} per person</p>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+      
+      <CardFooter className="bg-slate-50 flex justify-between mt-auto">
+        <div>
+          <p className="text-sm font-medium">Total Cost</p>
+          <p className="text-lg font-bold">₹{destination.totalCost.toLocaleString()}</p>
+        </div>
+        <Button>Book Now</Button>
+      </CardFooter>
+    </Card>
+  )
 }

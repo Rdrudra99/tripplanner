@@ -30,6 +30,8 @@ Your task:
    - activities (array of { name, pricePerPerson })
    - totalCost (sum of flights + hotels + activities for all travelers)
    - perPersonCost (totalCost / numberOfPeople)
+   - image (string URL to a relevant image of the destination - use only freely usable Unsplash images with URLs like https://images.unsplash.com/...)
+   - description (a brief 1-2 sentence description of the destination)
 3. Ensure that the total cost does not exceed the given budget, unless unavoidable.
 4. Keep dates consistent with the startDate and endDate from input.
 5. Return the result as valid JSON:
@@ -41,7 +43,9 @@ Your task:
       "hotel": { ... },
       "activities": [ ... ],
       "totalCost": ...,
-      "perPersonCost": ...
+      "perPersonCost": ...,
+      "image": "https://images.unsplash.com/...",
+      "description": "..."
     }
   ]
 }`;

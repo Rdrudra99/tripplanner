@@ -37,6 +37,8 @@ export interface Destination {
   activities: DestinationActivity[];
   totalCost: number;
   perPersonCost: number;
+  image?: string; // URL to a destination image
+  description?: string; // Short description of the destination
 }
 
 export interface TripPlannerResponse {
