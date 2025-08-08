@@ -1,36 +1,174 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# West Airlines Trip Planner
 
-## Getting Started
+A modern, AI-powered travel planning application that helps users discover and plan their perfect vacation based on their preferences, budget, and interests.
 
-First, run the development server:
+## 🌟 Features
 
+- **AI-Powered Trip Recommendations**: Get personalized destination suggestions based on your preferences
+- **Smart Destination Search**: Find ideal vacation spots matching your criteria
+- **User Authentication**: Secure login and personalized experience via Clerk
+- **Interactive UI**: Clean, responsive interface with modern design elements
+- **Travel Details**: Comprehensive information about destinations including flights, accommodations, and activities
+- **Budget-Friendly Options**: Find trips that match your specified budget
+- **SEO Optimized**: Built with best practices for search engine visibility
+
+## 🛠️ Technology Stack
+
+- **Frontend**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS with custom components
+- **Authentication**: Clerk for user management
+- **Form Handling**: React Hook Form with Zod validation
+- **UI Components**: Shadcn/UI component library
+- **AI Integration**: Groq for intelligent trip recommendations
+- **Icons**: Lucide React icon library
+- **Date Handling**: date-fns for date manipulation
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm/yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/westairlines-trip-planner.git
+cd westairlines-trip-planner
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables
+Create a `.env.local` file in the root directory with the following variables:
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+GROQ_API_KEY=your_groq_api_key
+```
+
+4. Run the development server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+westairlines-trip-planner/
+├── public/               # Static assets
+├── src/
+│   ├── app/              # Next.js App Router pages
+│   │   ├── api/          # API routes
+│   │   ├── trip-planner/ # Trip planner form page
+│   │   ├── trip-results/ # Trip results page
+│   │   └── layout.tsx    # Root layout with metadata
+│   ├── components/       # Reusable components
+│   │   ├── ui/           # UI components from shadcn
+│   │   └── ...           # Custom components
+│   ├── lib/              # Utility functions
+│   └── styles/           # Global styles
+├── .env.local            # Environment variables
+├── next.config.js        # Next.js configuration
+├── tailwind.config.js    # Tailwind CSS configuration
+└── package.json          # Project dependencies
+```
 
-## Learn More
+## 🔍 Key Components
 
-To learn more about Next.js, take a look at the following resources:
+### Trip Planner Form
+The core of the application where users input their travel preferences:
+- Destination (optional)
+- Travel dates
+- Number of travelers
+- Vacation type/experience
+- Budget
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Trip Results Page
+Displays AI-generated travel recommendations based on user input:
+- Destination cards with images and details
+- Flight information
+- Hotel recommendations
+- Activities and points of interest
+- Budget breakdown
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### AI Integration
+Utilizes Groq's API to:
+- Analyze user preferences
+- Generate personalized destination recommendations
+- Provide relevant travel information
+- Suggest activities based on interests
 
-## Deploy on Vercel
+## 🌐 SEO Optimization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application includes:
+- Comprehensive metadata for all pages
+- Proper OpenGraph and Twitter card data
+- Structured data (JSON-LD) for search engines
+- Sitemap generation
+- Robots.txt configuration
+- Canonical URLs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Testing
+
+Run the test suite with:
+```bash
+npm test
+# or
+yarn test
+```
+
+## 📱 Responsive Design
+
+The application is fully responsive and works well on:
+- Desktop computers
+- Tablets
+- Mobile devices
+
+## 🔒 Security Features
+
+- Secure authentication via Clerk
+- Input validation with Zod
+- Environment variable protection
+- API rate limiting
+
+## 🛣️ Future Roadmap
+
+- **Booking Integration**: Direct booking capabilities
+- **User Profiles**: Save favorite destinations and past trips
+- **Itinerary Builder**: Create detailed day-by-day travel plans
+- **Social Sharing**: Share trip plans with friends and family
+- **Weather Integration**: Show weather forecasts for destinations
+- **Local Transportation**: Add local transport options
+- **Multi-City Trips**: Support for multi-destination journeys
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Developer
+
+This project was developed as part of an assessment for West Airlines.
+
+## 🙏 Acknowledgements
+
+- [Next.js](https://nextjs.org/) for the React framework
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Clerk](https://clerk.dev/) for authentication
+- [Shadcn/UI](https://ui.shadcn.com/) for UI components
+- [Groq](https://groq.com/) for AI capabilities
+- [Lucide](https://lucide.dev/) for beautiful icons
+- [Vercel](https://vercel.com/) for hosting
+
+---
+
+Visit the live demo at: [https://westairtrip.vercel.app/](https://westairtrip.vercel.app/)
