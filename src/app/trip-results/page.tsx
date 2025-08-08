@@ -179,10 +179,37 @@ export default function TripResultsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-          <p className="text-xl">Finding the perfect destinations for you...</p>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white px-4">
+        <div className="flex flex-col items-center gap-6 max-w-md text-center">
+          <div className="relative">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-200 border-t-blue-600"></div>
+            <Plane className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-6 text-blue-600" />
+          </div>
+          
+          <div>
+            <h2 className="text-xl font-bold text-gray-800 mb-2">
+              Finding your perfect destinations
+            </h2>
+            <p className="text-gray-600">
+              Our AI is analyzing travel options across hundreds of destinations to match your preferences
+            </p>
+          </div>
+
+          <div className="w-full mt-4 space-y-3">
+            <div className="w-full bg-gray-100 rounded-full h-1.5">
+              <div className="bg-blue-600 h-1.5 rounded-full animate-pulse w-3/4"></div>
+            </div>
+            
+            <div className="flex justify-between text-xs text-gray-500">
+              <span>Searching flights</span>
+              <span>Checking hotels</span>
+              <span>Finding activities</span>
+            </div>
+          </div>
+
+          <div className="italic text-sm text-gray-500 mt-2">
+            This usually takes about 15-20 seconds
+          </div>
         </div>
       </div>
     )
