@@ -5,6 +5,7 @@ import { useForm, useWatch } from "react-hook-form"
 import { z } from "zod"
 import { useEffect } from "react"
 import { addDays, format } from "date-fns"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -91,18 +92,28 @@ const TripForm = () => {
     }
   }, [startDate, form]);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Format the dates to YYYY-MM-DD string format
-    const formattedData = {
-      startDate: format(values.startDate, "yyyy-MM-dd"),
-      endDate: format(values.endDate, "yyyy-MM-dd"),
-      budget: parseInt(values.budget),
-      vacationType: values.vacationType,
-      numberOfPeople: parseInt(values.numberOfPeople),
-      destination: values.destination
-    };
+  const router = useRouter();
     
-    console.log(formattedData);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      // Format the dates to YYYY-MM-DD string format
+      const formattedData = {
+        startDate: format(values.startDate, "yyyy-MM-dd"),
+        endDate: format(values.endDate, "yyyy-MM-dd"),
+        budget: parseInt(values.budget),
+        vacationType: values.vacationType,
+        numberOfPeople: parseInt(values.numberOfPeople),
+        destination: values.destination
+      };
+      
+      // Store the form data in localStorage to access it on the results page
+      localStorage.setItem('tripFormData', JSON.stringify(formattedData));
+      
+      // Redirect to the results page
+      router.push('/trip-results');
+    } catch (error) {
+      console.error("Error processing form submission:", error);
+    }
   }
 
   return (
